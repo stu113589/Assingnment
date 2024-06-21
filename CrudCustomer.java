@@ -3,7 +3,17 @@ import java.util.Scanner;
 
 public class CrudCustomer {
     private ArrayList<Customer> customer_data = new ArrayList<Customer>();
-Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
+public CrudCustomer() 
+{
+    Customer c1 = new Customer("Amjad", 42, "alam@gmail.com" ,"111111" , "MAle", "London",230.45);
+    Customer c2 = new Customer("Amjad1", 43, "alam2@gmail.com" ,"222222" , "MAle", "London",330.45);
+    Customer c3 = new Customer("Amjad2", 44, "alam2gmail.com" ,"333333","MAle", "London",430.45);
+ customer_data.add(c1); 
+ customer_data.add(c2); 
+ customer_data.add(c3); 
+}
+
     public void insert() 
     {
         Customer new_data = new Customer();
@@ -28,12 +38,14 @@ Scanner scanner = new Scanner(System.in);
             System.out.println(" Something went wrong...");
         }
     }
-    public void display(String phone)
+    public void retrieve()
     {
+        System.out.println(" Enter the phone number: ");
+        String entered_phone = scanner.nextLine();
         boolean found=false;
         for(Customer x: customer_data) 
         {
-            if (x.getPhone_number().equals(phone))
+            if (x.getPhone_number().equals(entered_phone))
             {
             found=true;
             x.print();
@@ -44,12 +56,14 @@ Scanner scanner = new Scanner(System.in);
         System.out.println(" Sorry dataild not Found....");
 
     }
-public void delete(String phone) 
+public void delete() 
 {
+System.out.println(" Enter the phone number: ");
+        String entered_phone = scanner.nextLine();
     boolean found=false;
         for(Customer x: customer_data) 
         {
-            if (x.getPhone_number().equals(phone))
+            if (x.getPhone_number().equals(entered_phone))
             {
             found=true;
             x.print();
